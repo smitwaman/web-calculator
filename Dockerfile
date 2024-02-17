@@ -2,7 +2,7 @@
 # Stage 1: Build the application
 FROM node:14 AS builder
 WORKDIR /app
-COPY package.json ./
+COPY *.* ./
 RUN npm install
 COPY . .
 RUN npm run build
