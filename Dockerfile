@@ -1,12 +1,8 @@
-# Use a base image with Node.js and Nginx
-# Stage 1: Build the application
-FROM node:14 AS builder
-WORKDIR /app
-COPY /app/package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-
-# Stage 2: Serve the application with Nginx
+# Use a lightweight web server image as the base image
 FROM nginx:alpine
-COPY --from=builder /app/build /usr/share/nginx/html
+
+# Set the working directory inside the container
+WORKDIR /usr/share/nginx/html
+
+# Copy the local files to the container's filesystem
+COPY . .
