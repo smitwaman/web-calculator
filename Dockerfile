@@ -6,3 +6,6 @@ WORKDIR /usr/share/nginx/html
 
 # Copy the local files to the container's filesystem
 COPY . .
+
+# Expose port 80 to the outside world
+EXPOSE 80
