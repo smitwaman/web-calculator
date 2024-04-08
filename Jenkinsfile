@@ -29,11 +29,10 @@ pipeline {
      stage('Node.js Build') {
             steps {
                 script {
-                    {
 
                         // Build Node.js project (e.g., run tests, transpile code, etc.)
                         sh 'npm run build' // Adjust the command as needed
-                    }
+                    
                 }
             }
         }
