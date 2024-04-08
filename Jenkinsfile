@@ -4,6 +4,7 @@ pipeline {
    tools {
         // Define the Maven tool with the name 'maven'
         maven 'maven'
+        nodejs 'nodejs'
     }
     
 
@@ -25,20 +26,18 @@ pipeline {
             }
         }
 
-        stage('Maven Package') {
+     stage('Node.js Build') {
             steps {
                 script {
-                    // Build the Maven project and package the artifact
-                    sh 'mvn package'
+                    {
+
+                        // Build Node.js project (e.g., run tests, transpile code, etc.)
+                        sh 'npm run build' // Adjust the command as needed
+                    }
                 }
             }
-            post {
-                success {
-                    // Archive the artifact (e.g., JAR, WAR) for later use or deployment
-                    archiveArtifacts artifacts: 'target/*.jar' // Adjust the pattern as needed
-                }
-            }
-        }  
+        }
+
 
       
 
