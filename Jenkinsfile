@@ -5,7 +5,8 @@ pipeline {
         // Define the Maven tool with the name 'maven'
         maven 'maven'
         nodejs 'nodejs'
-    }
+        git 'git'
+   }
     
 
     stages {
